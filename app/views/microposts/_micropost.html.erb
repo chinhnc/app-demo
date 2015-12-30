@@ -11,4 +11,10 @@
         <%= link_to "delete", micropost, method: :delete,data: { confirm: "You sure?" } %>
     <% end %>
   </span>
+    <% if logged_in? %>
+      <%= render 'shared/comment_form', micropost: micropost %>
+    <% end %>
+  <div id="comments">
+    <%= render micropost.comments %>
+  </div>
 </li>

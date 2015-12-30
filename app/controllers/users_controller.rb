@@ -15,6 +15,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
+    @comment = current_user.comments.build if logged_in?
+    store_location
   end
 
   # GET /users/new
