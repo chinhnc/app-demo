@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 	has_many :followers, through: :passive_relationships, source: :follower
 
 	has_many :comments
+	has_many :likes
 
 	attr_accessor :remember_token, :activation_token, :reset_token
 
@@ -82,6 +83,10 @@ class User < ActiveRecord::Base
 
 	def following?(other_user)
 		following.include?(other_user)
+	end
+
+	def liked?(micropost)
+		micropost.likes.where(:user_id => id).blank?
 	end
 
 
