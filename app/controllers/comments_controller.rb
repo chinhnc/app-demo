@@ -1,11 +1,12 @@
 class CommentsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:create, :destroy]
   def create
     @micropost = Micropost.find(params[:micropost_id])
     @comment = @micropost.comments.build(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
       respond_to do |format|
-        format.html {redirect_to current_user}
+        format.html {redirect_back_or current_user}
         format.js
       end
     else
@@ -19,7 +20,7 @@ class CommentsController < ApplicationController
     @delete_id = @comment.id
     @comment.destroy
     respond_to do |format|
-      format.html {redirect_to current_user}
+      format.html {redirect_back_or current_user}
       format.js
     end
   end
