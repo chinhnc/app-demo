@@ -11,12 +11,16 @@
         <%= link_to "delete", micropost, method: :delete,data: { confirm: "You sure?" } %>
     <% end %>
   </span>
-    <% if logged_in? %>
-      <%= render 'users/like_form', micropost: micropost %>
-      <%= render 'shared/like_stats', micropost: micropost %>
-      <%= render 'shared/comment_form', micropost: micropost %>
-    <% end %>
-  <div id="comments">
-    <%= render micropost.comments %>
-  </div>
+  <% if logged_in? %>
+      <% if current_user?(micropost.user) || current_user.following?(micropost.user) %>
+          <div class="micropost_comment-like">
+            <%= render 'users/like_form', micropost: micropost %>
+            <%= render 'shared/like_stats', micropost: micropost %>
+            <%= render 'shared/comment_form', micropost: micropost %>
+            <div id="comments">
+              <%= render micropost.comments %>
+            </div>
+          </div>
+      <% end %>
+  <%end%>
 </li>
