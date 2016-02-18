@@ -7,10 +7,11 @@ class Comment < ActiveRecord::Base
 
   mount_uploader :pictute, PictureUploader
 
-  validates :comment_content, presence: true
   validates :user_id, presence: true
   validates :micropost_id, presence: true
+  validates :comment_content, presence: true
   validate :picture_size
+
 
   private
 

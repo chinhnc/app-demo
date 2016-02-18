@@ -12,6 +12,7 @@ gem 'fog', '1.32.0'
 gem 'will_paginate', '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'net-ssh'
+gem 'remotipart', '~>1.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets

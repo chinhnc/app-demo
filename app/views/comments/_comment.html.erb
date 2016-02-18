@@ -5,7 +5,7 @@
     <%= image_tag comment.pictute.url if comment.pictute? %>
   </span>
   <span class="timestamp">
-    Posted by <%= comment.user.name %>
+    Commented by <%= comment.user.name %>
     <%= time_ago_in_words(comment.created_at) %> ago.
     <% if current_user?(comment.user) || current_user?(comment.micropost.user) %>
         <%= link_to "delete", comment, method: :delete, remote: true,data: { confirm: "You sure?" } %>
