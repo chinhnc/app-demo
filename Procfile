@@ -1,1 +1,2 @@
-web: bundle exec thin start -p 9292
+web: rackup sync.ru -E production
+     bin/rails server -p $PORT -e $RAILS_ENV
