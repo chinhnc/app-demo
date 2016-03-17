@@ -14,11 +14,14 @@
   <% if logged_in? %>
       <% if current_user?(micropost.user) || current_user.following?(micropost.user) %>
           <div class="micropost_comment-like">
-            <%= render 'users/like_form', micropost: micropost %>
-            <%= render 'shared/like_stats', micropost: micropost %>
-            <%= render 'shared/comment_form', micropost: micropost %>
+            <%= render partial: 'users/like_form', locals: { micropost: micropost } %>
+            <%= sync partial: 'like_stats', resource: micropost %>
+            <%= render partial: 'shared/comment_form', locals: { micropost: micropost } %>
             <div id="comments">
-              <%= render micropost.comments %>
+              <% micropost.comments.each do |comment|%>
+              <%= sync partial: 'comment', resource: comment %>
+              <% end %>
+              <%= sync_new partial: 'comment', resource: Comment.new, scope: micropost %>
             </div>
           </div>
       <% end %>

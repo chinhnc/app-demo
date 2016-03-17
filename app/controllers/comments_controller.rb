@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
     @comment = @micropost.comments.build(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
+      sync_new @comment, scope: @micropost
       respond_to do |format|
         format.html {redirect_back_or current_user}
         format.js
@@ -17,8 +18,9 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @delete_id = @comment.id
+    @delete_id = params[:id]
     @comment.destroy
+    sync_destroy @comment
     respond_to do |format|
       format.html {redirect_back_or current_user}
       format.js

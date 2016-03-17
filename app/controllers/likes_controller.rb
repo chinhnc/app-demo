@@ -3,6 +3,7 @@ class LikesController < ApplicationController
     @micropost = Micropost.find(params[:micropost_id])
     like = @micropost.likes.build(:user_id => current_user.id)
     if like.save
+      sync_update @micropost
       respond_to do |format|
         format.html {redirect_to current_user}
         format.js
@@ -17,6 +18,7 @@ class LikesController < ApplicationController
     like = Like.find(params[:id])
     @micropost = Micropost.find(like.micropost_id)
     like.destroy
+    sync_update @micropost
     respond_to do |format|
       format.html {redirect_to current_user}
       format.js
