@@ -15,4 +15,5 @@
 //= require bootstrap
 //= require turbolinks
 //= require sync
+//= faye
 //= require_tree .

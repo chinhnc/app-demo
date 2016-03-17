@@ -1,2 +1,1 @@
-web: bin/rails server thin -p $PORT -e $RAILS_ENV
-worker: bundle exec foreman start -f Procfile.workers
+web: bundle exec rails server thin -p $PORT -e $RACK_ENV
