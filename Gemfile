@@ -15,7 +15,6 @@ gem 'net-ssh'
 gem 'remotipart', '~>1.2'
 
 gem 'faye'
-gem 'thin', require: false
 gem 'sync'
 
 # Use SCSS for stylesheets
@@ -48,6 +47,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '1.3.11'
+  gem 'thin', require: false
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end
