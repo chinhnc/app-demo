@@ -1,0 +1,1 @@
+sync_worker: rackup sync.ru -s thin -E production
