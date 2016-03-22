@@ -27,8 +27,8 @@ test:
   async: false
 
 production:
-  server: "http://example.com/faye"
-  adapter_javascript_url: "http://localhost:9292/faye/faye.js"
+  server: "https://xxx-sync.herokuapp.com/faye"
+  adapter_javascript_url: "https://xxx-sync.herokuapp.com/faye/faye.js"
   adapter: "Faye"
-  auth_token: "aaba0f69f630d9c24800bad5ffa3ada032343f663488178a7d11dbce727376c2"
+  auth_token: <=% ENV["SYNC_AUTH_TOKEN"] %>
   async: true
