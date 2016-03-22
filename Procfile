@@ -1,2 +1,2 @@
-web: bundle exec thin -p $PORT -e $RACK_ENV -R sync.ru start
-     rails server
+server: rackup sync.ru -e production
+web: bundle exec rails server -p $PORT -e $RACK_ENV
