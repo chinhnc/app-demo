@@ -1,4 +1,19 @@
 # Faye
+development:
+  server: "http://localhost:9292/faye"
+  adapter_javascript_url: "http://localhost:9292/faye/faye.js"
+  adapter: "Faye"
+  auth_token: "jaksdfhkajsdfhaksdfhaskdjf"
+  async: true
+
+test:
+  server: "http://localhost:9292/faye"
+  adapter_javascript_url: "http://localhost:9292/faye/faye.js"
+  adapter: "Faye"
+  auth_token: "socket"
+  async: false
+
+
 production:
   server: "https://immense-shore-76171.herokuapp.com:4443/faye"
   adapter_javascript_url: "https://immense-shore-76171.herokuapp.com:4443/faye/faye.js"
