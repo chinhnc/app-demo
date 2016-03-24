@@ -1,1 +1,1 @@
-web: bundle exec thin -p $PORT -e $RACK_ENV -R sync.ru start
+web: bundle exec thin -p 4443 -e $RACK_ENV -R sync.ru start & bundle exec rails server -p $PORT -e $RACK_ENV
