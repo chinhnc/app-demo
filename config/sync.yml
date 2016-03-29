@@ -15,8 +15,8 @@ test:
 
 
 production:
-  server: "https://stormy-hollows-19535.herokuapp.com/:4443/faye"
-  adapter_javascript_url: "https://stormy-hollows-19535.herokuapp.com/:4443/faye/faye.js"
+  server: "https://stark-bastion-72425.herokuapp.com/faye"
+  adapter_javascript_url: "https://stark-bastion-72425.herokuapp.com/faye/faye.js"
   adapter: "Faye"
   auth_token: <=% ENV["SYNC_AUTH_TOKEN"] %>
   async: true
